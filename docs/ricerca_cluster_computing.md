@@ -1,6 +1,6 @@
 # Cluster computing: caratteristiche, funzionamento e applicazioni
 
-## 1. Caratteristiche: perché è un sistema distribuito?
+## Caratteristiche: perché è un sistema distribuito?
 
 Il **cluster computing** è un modello informatico nel quale più computer autonomi, chiamati **nodi**, sono collegati attraverso una rete e coordinati per svolgere attività comuni. Invece di affidare tutto il lavoro a una sola macchina, un cluster mette insieme le risorse di più sistemi: processori, memoria, capacità di archiviazione ed eventualmente GPU. Dal punto di vista di chi lo utilizza, questi computer possono apparire come un'unica infrastruttura di elaborazione.
 
@@ -17,7 +17,7 @@ In base al loro obiettivo, si distinguono principalmente:
 
 Queste categorie non sono completamente separate: uno stesso cluster può essere progettato per unire, ad esempio, prestazioni elevate e continuità del servizio.
 
-## 2. Funzionamento: architettura, interazione tra nodi, utenti e rete
+## Funzionamento: architettura, interazione tra nodi, utenti e rete
 
 ### Architettura di un cluster
 
@@ -54,7 +54,7 @@ Anche la gestione dei dati cambia a seconda dell'applicazione. Alcuni cluster ut
 
 L'interazione dell'utente, quindi, avviene di norma con un punto di accesso, un'interfaccia o un sistema di gestione: **non è necessario collegarsi e controllare manualmente ogni singolo nodo**.
 
-## 3. Vantaggi: perché viene utilizzato?
+## Vantaggi: perché viene utilizzato?
 
 Uno dei vantaggi principali è l'aumento della **capacità di elaborazione**. Se un problema può essere suddiviso in attività indipendenti, diversi nodi possono lavorarci nello stesso momento. Questo permette di ridurre i tempi di calcolo oppure di affrontare problemi troppo grandi per una sola macchina.
 
@@ -66,7 +66,7 @@ Il cluster può migliorare anche l'**utilizzo delle risorse**. Uno scheduler ass
 
 Infine, i cluster offrono **flessibilità**: si possono usare nodi specializzati, distribuire software su più macchine e adattare l'infrastruttura a esigenze differenti. Il rapporto tra costi e benefici può essere favorevole quando l'aggiunta di server relativamente standard evita il ricorso a un'unica macchina estremamente potente, ma dipende dal tipo di applicazione e dalle spese di gestione.
 
-## 4. Limiti e criticità: quali problemi presenta?
+## Limiti e criticità: quali problemi presenta?
 
 Il principale svantaggio è la **complessità**. Un cluster richiede la configurazione e la manutenzione di molte macchine, oltre alla gestione di rete, sistemi operativi, accessi, aggiornamenti, scheduler e strumenti di monitoraggio. Un problema in un componente centrale, se non è prevista ridondanza, può compromettere l'intera infrastruttura.
 
@@ -80,7 +80,7 @@ La gestione dei **guasti** è particolarmente delicata. Se un nodo si arresta du
 
 Infine vanno considerati **sicurezza, costi ed energia**. Moltiplicare server e connessioni aumenta i componenti da proteggere e mantenere aggiornati. Acquisto, consumi elettrici, raffreddamento e personale specializzato possono incidere molto sul costo totale; nel cloud, invece, si pagano anche le risorse e i servizi utilizzati.
 
-## 5. Ambiti di utilizzo: aziende, ricerca e vita quotidiana
+## Ambiti di utilizzo: aziende, ricerca e vita quotidiana
 
 Il cluster computing viene utilizzato in contesti diversi, a seconda dell'obiettivo da raggiungere.
 
@@ -96,7 +96,7 @@ Il cluster computing viene utilizzato in contesti diversi, a seconda dell'obiett
 
 **Multimedia e vita quotidiana.** L'elaborazione di immagini e video, la conversione di file multimediali e il funzionamento di molti servizi digitali possono appoggiarsi a gruppi di server coordinati. Gli utenti normalmente vedono soltanto l'applicazione finale, senza accorgersi che dietro di essa lavorano più nodi.
 
-## 6. Esempio reale: Netflix e la piattaforma Titus
+## Esempio reale: Netflix e la piattaforma Titus
 
 Un caso concreto di cluster computing nell'ambito dei servizi digitali è **Titus**, una piattaforma sviluppata da **Netflix** per gestire l'esecuzione di applicazioni all'interno di **container**. I container sono ambienti software che racchiudono un programma e le dipendenze necessarie al suo funzionamento, facilitandone l'esecuzione su macchine differenti.
 
@@ -119,7 +119,7 @@ La dimensione del sistema mostra l'utilità del modello: nell'**aprile 2018** Ne
 
 **Precisazione sull'evoluzione tecnologica.** La documentazione pubblica di Titus descrive un'architettura storica e il suo repository principale è stato archiviato nel **2022**. In un articolo tecnico pubblicato nel **novembre 2025**, Netflix ha raccontato la migrazione da una precedente piattaforma container a una nuova soluzione che utilizza componenti come **kubelet** e **containerd**. Per questa ragione, la struttura di Titus non va presentata come una descrizione verificata dell'intera infrastruttura Netflix nel 2026. Rimane però un esempio reale e ben documentato dei principi del cluster computing: nodi autonomi, coordinamento centralizzato, assegnazione delle risorse, esecuzione distribuita e scalabilità.
 
-## 7. Bibliografia e sitografia
+## Bibliografia e sitografia
 
 Le fonti sono prevalentemente documentazioni ufficiali e pubblicazioni tecniche. Le prime sei fonti riguardano il **cluster computing in generale**; le ultime quattro documentano il **caso Netflix**.
 

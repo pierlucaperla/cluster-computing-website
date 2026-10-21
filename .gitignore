@@ -2,4 +2,4 @@
 !.openai/hosting.json
 build_content.py
 /dist/
-outputs/
+/outputs/

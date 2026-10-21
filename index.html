@@ -1,1 +1,235 @@
-<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Un percorso visuale in sette capitoli dedicato al cluster computing."><meta name="theme-color" content="#10120f"><title>La forza di lavorare insieme — Cluster</title><link rel="stylesheet" href="style.css"><script src="script.js" defer></script></head><body><a class="skip" href="#main">Salta al contenuto</a><div class="progress" aria-hidden="true"></div><header><a class="brand" href="index.html" aria-label="Cluster, pagina iniziale"><span class="brand-icon">⠿</span> cluster<span class="brand-dot">.</span></a><button class="menu-toggle" aria-expanded="false" aria-controls="main-nav">Menu <span>☰</span></button><nav id="main-nav" aria-label="Navigazione principale"><a href="index.html" aria-current="page">Panoramica</a><a href="concetti.html">Fondamenti</a><a href="architettura.html">Funzionamento</a><a href="vantaggi.html">Vantaggi</a><a href="limiti.html">Criticità</a><a href="applicazioni.html">Applicazioni</a><a href="netflix.html">Caso reale</a><a href="fonti.html">Bibliografia</a></nav></header><main id="main" tabindex="-1"><section class="hero"><div class="hero-copy"><p class="eyebrow"><span></span> SISTEMI DISTRIBUITI / UNA RICERCA VISUALE</p><h1>La forza di<br>lavorare <em>insieme.</em></h1><p class="hero-description">Un computer risolve un problema.<br>Un cluster apre nuove possibilità.</p><p class="hero-sub">Scopri come macchine indipendenti mettono in comune le proprie risorse per affrontare sfide più grandi.</p><a class="button" href="concetti.html">Esplora il cluster <span>↘</span></a></div><div class="visual"><div class="visual-top"><span>CLUSTER TOPOLOGY</span><span class="live">● MODELLO INTERATTIVO</span></div><div class="network" role="group" aria-label="Schema illustrativo di un cluster. Seleziona un nodo per conoscerne il ruolo."><svg viewBox="0 0 500 390" aria-hidden="true"><g fill="none" stroke="currentColor"><path d="M250 185L90 80M250 185L410 80M250 185L70 265M250 185L430 265M250 185L250 330"/><path class="secondary" d="M90 80L410 80L430 265L250 330L70 265Z"/></g></svg><button class="node master selected" data-node="control" aria-label="Sistema di controllo" aria-pressed="true"><span>⌘</span><small>CONTROL</small></button><button class="node n1" data-node="cpu" aria-label="Nodo di calcolo 01" aria-pressed="false"><span>▥</span><small>NODE 01</small></button><button class="node n2" data-node="gpu" aria-label="Nodo con GPU 02" aria-pressed="false"><span>▥</span><small>NODE 02</small></button><button class="node n3" data-node="cpu" aria-label="Nodo di calcolo 03" aria-pressed="false"><span>▥</span><small>NODE 03</small></button><button class="node n4" data-node="cpu" aria-label="Nodo di calcolo 04" aria-pressed="false"><span>▥</span><small>NODE 04</small></button><button class="node n5" data-node="storage" aria-label="Storage" aria-pressed="false"><span>▤</span><small>STORAGE</small></button></div><div class="node-description" aria-live="polite"><span id="node-title">Sistema di controllo</span><p id="node-text">Coordina i nodi e monitora il funzionamento complessivo del cluster.</p></div><div class="visual-bottom"><span>● Nodi autonomi</span><span>↔ Risorse connesse</span></div></div><div class="hero-footer"><span>PIÙ MACCHINE. UN’INFRASTRUTTURA.</span><span>Scorri per scoprire <b>↓</b></span></div></section><div class="overview"><p>Il principio è semplice.</p><h2>Distribuire il lavoro.<br><span>Moltiplicare le possibilità.</span></h2><p>Ogni nodo ha processori, sistema operativo e memoria propri. La rete li connette; il software ne coordina il lavoro. È così che nasce un sistema distribuito.</p><div class="distinction"><b>Cluster ≠ calcolo parallelo</b><span>Il cluster è l’infrastruttura. Il parallelismo è una delle tecniche che può utilizzare.</span></div></div><section class="path-section" id="percorso"><div class="path-heading"><div><p class="eyebrow">SETTE CAPITOLI / UN PERCORSO</p><h2>Esplora le connessioni.</h2></div><p>Scegli un argomento, oppure segui il percorso dall’inizio.</p></div><div class="chapter-grid"><a class="chapter-card" href="concetti.html"><span class="card-number">01 / Fondamenti</span><h3>Il sistema, in breve</h3><p>Computer autonomi. Risorse distribuite. Un obiettivo comune.</p><span class="card-arrow" aria-hidden="true">↗</span></a><a class="chapter-card" href="architettura.html"><span class="card-number">02 / Funzionamento</span><h3>Dentro il cluster</h3><p>Dalla richiesta al risultato: chi decide, chi esegue e come si comunica.</p><span class="card-arrow" aria-hidden="true">↗</span></a><a class="chapter-card" href="vantaggi.html"><span class="card-number">03 / Vantaggi</span><h3>Più nodi, più possibilità</h3><p>Prestazioni, crescita e continuità: i benefici dipendono dal progetto.</p><span class="card-arrow" aria-hidden="true">↗</span></a><a class="chapter-card" href="limiti.html"><span class="card-number">04 / Criticità</span><h3>Anche la potenza ha dei limiti</h3><p>La rete, le parti sequenziali e la gestione dei guasti contano quanto i processori.</p><span class="card-arrow" aria-hidden="true">↗</span></a><a class="chapter-card" href="applicazioni.html"><span class="card-number">05 / Applicazioni</span><h3>Dove lo incontriamo</h3><p>Dalle simulazioni scientifiche ai servizi che usiamo ogni giorno.</p><span class="card-arrow" aria-hidden="true">↗</span></a><a class="chapter-card" href="netflix.html"><span class="card-number">06 / Caso reale</span><h3>Il caso Netflix / Titus</h3><p>Una piattaforma reale per capire il coordinamento su larga scala.</p><span class="card-arrow" aria-hidden="true">↗</span></a><a class="chapter-card" href="fonti.html"><span class="card-number">07 / Bibliografia</span><h3>Le fonti della ricerca</h3><p>Documentazioni ufficiali e pubblicazioni tecniche, raccolte nel documento originale.</p><span class="card-arrow" aria-hidden="true">↗</span></a></div></section><section class="closing"><p class="eyebrow">CONNESSI, PER ANDARE OLTRE</p><h2>La potenza è nelle<br><em>connessioni.</em></h2><a class="button" href="docs/ricerca_cluster_computing.md" download>Scarica la ricerca originale <span>↓</span></a></section></main><footer><a class="brand" href="index.html">cluster.</a><p>Ricerca di Perla · Ciarlo · Doganieri</p><a href="#main">Torna in alto ↑</a></footer></body></html>
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta
+      name="description"
+      content="Un percorso visuale in sette capitoli dedicato al cluster computing."
+    />
+    <meta name="theme-color" content="#10120f" />
+    <title>La forza di lavorare insieme — Cluster</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <a class="skip" href="#main">Salta al contenuto</a>
+    <div class="progress" aria-hidden="true"></div>
+    <header>
+      <a class="brand" href="index.html" aria-label="Cluster, pagina iniziale"
+        ><span class="brand-icon">⠿</span> cluster<span class="brand-dot"
+          >.</span
+        ></a
+      ><button
+        class="menu-toggle"
+        aria-expanded="false"
+        aria-controls="main-nav"
+      >
+        Menu <span>☰</span>
+      </button>
+      <nav id="main-nav" aria-label="Navigazione principale">
+        <a href="index.html" aria-current="page">Panoramica</a
+        ><a href="concepts.html">Fondamenti</a
+        ><a href="architecture.html">Funzionamento</a
+        ><a href="advantages.html">Vantaggi</a
+        ><a href="limitations.html">Criticità</a
+        ><a href="applications.html">Applicazioni</a
+        ><a href="netflix.html">Caso reale</a
+        ><a href="sources.html">Bibliografia</a>
+      </nav>
+    </header>
+    <main id="main" tabindex="-1">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">
+            <span></span> SISTEMI DISTRIBUITI / UNA RICERCA VISUALE
+          </p>
+          <h1>La forza di<br />lavorare <em>insieme.</em></h1>
+          <p class="hero-description">
+            Un computer risolve un problema.<br />Un cluster apre nuove
+            possibilità.
+          </p>
+          <p class="hero-sub">
+            Scopri come macchine indipendenti mettono in comune le proprie
+            risorse per affrontare sfide più grandi.
+          </p>
+          <a class="button" href="concepts.html"
+            >Esplora il cluster <span>↘</span></a
+          >
+        </div>
+        <div class="visual">
+          <div class="visual-top">
+            <span>CLUSTER TOPOLOGY</span
+            ><span class="live">● MODELLO INTERATTIVO</span>
+          </div>
+          <div
+            class="network"
+            role="group"
+            aria-label="Schema illustrativo di un cluster. Seleziona un nodo per conoscerne il ruolo."
+          >
+            <svg viewBox="0 0 500 390" aria-hidden="true">
+              <g fill="none" stroke="currentColor">
+                <path
+                  d="M250 185L90 80M250 185L410 80M250 185L70 265M250 185L430 265M250 185L250 330"
+                />
+                <path
+                  class="secondary"
+                  d="M90 80L410 80L430 265L250 330L70 265Z"
+                />
+              </g></svg
+            ><button
+              class="node master selected"
+              data-node="control"
+              aria-label="Sistema di controllo"
+              aria-pressed="true"
+            >
+              <span>⌘</span><small>CONTROL</small></button
+            ><button
+              class="node n1"
+              data-node="cpu"
+              aria-label="Nodo di calcolo 01"
+              aria-pressed="false"
+            >
+              <span>▥</span><small>NODE 01</small></button
+            ><button
+              class="node n2"
+              data-node="gpu"
+              aria-label="Nodo con GPU 02"
+              aria-pressed="false"
+            >
+              <span>▥</span><small>NODE 02</small></button
+            ><button
+              class="node n3"
+              data-node="cpu"
+              aria-label="Nodo di calcolo 03"
+              aria-pressed="false"
+            >
+              <span>▥</span><small>NODE 03</small></button
+            ><button
+              class="node n4"
+              data-node="cpu"
+              aria-label="Nodo di calcolo 04"
+              aria-pressed="false"
+            >
+              <span>▥</span><small>NODE 04</small></button
+            ><button
+              class="node n5"
+              data-node="storage"
+              aria-label="Storage"
+              aria-pressed="false"
+            >
+              <span>▤</span><small>STORAGE</small>
+            </button>
+          </div>
+          <div class="node-description" aria-live="polite">
+            <span id="node-title">Sistema di controllo</span>
+            <p id="node-text">
+              Coordina i nodi e monitora il funzionamento complessivo del
+              cluster.
+            </p>
+          </div>
+          <div class="visual-bottom">
+            <span>● Nodi autonomi</span><span>↔ Risorse connesse</span>
+          </div>
+        </div>
+        <div class="hero-footer">
+          <span>PIÙ MACCHINE. UN’INFRASTRUTTURA.</span
+          ><span>Scorri per scoprire <b>↓</b></span>
+        </div>
+      </section>
+      <div class="overview">
+        <p>Il principio è semplice.</p>
+        <h2>
+          Distribuire il lavoro.<br /><span>Moltiplicare le possibilità.</span>
+        </h2>
+        <p>
+          Ogni nodo ha processori, sistema operativo e memoria propri. La rete
+          li connette; il software ne coordina il lavoro. È così che nasce un
+          sistema distribuito.
+        </p>
+        <div class="distinction">
+          <b>Cluster ≠ calcolo parallelo</b
+          ><span
+            >Il cluster è l’infrastruttura. Il parallelismo è una delle tecniche
+            che può utilizzare.</span
+          >
+        </div>
+      </div>
+      <section class="path-section" id="percorso">
+        <div class="path-heading">
+          <div>
+            <p class="eyebrow">SETTE CAPITOLI / UN PERCORSO</p>
+            <h2>Esplora le connessioni.</h2>
+          </div>
+          <p>Scegli un argomento, oppure segui il percorso dall’inizio.</p>
+        </div>
+        <div class="chapter-grid">
+          <a class="chapter-card" href="concepts.html"
+            ><span class="card-number">01 / Fondamenti</span>
+            <h3>Il sistema, in breve</h3>
+            <p>Computer autonomi. Risorse distribuite. Un obiettivo comune.</p>
+            <span class="card-arrow" aria-hidden="true">↗</span></a
+          ><a class="chapter-card" href="architecture.html"
+            ><span class="card-number">02 / Funzionamento</span>
+            <h3>Dentro il cluster</h3>
+            <p>
+              Dalla richiesta al risultato: chi decide, chi esegue e come si
+              comunica.
+            </p>
+            <span class="card-arrow" aria-hidden="true">↗</span></a
+          ><a class="chapter-card" href="advantages.html"
+            ><span class="card-number">03 / Vantaggi</span>
+            <h3>Più nodi, più possibilità</h3>
+            <p>
+              Prestazioni, crescita e continuità: i benefici dipendono dal
+              progetto.
+            </p>
+            <span class="card-arrow" aria-hidden="true">↗</span></a
+          ><a class="chapter-card" href="limitations.html"
+            ><span class="card-number">04 / Criticità</span>
+            <h3>Anche la potenza ha dei limiti</h3>
+            <p>
+              La rete, le parti sequenziali e la gestione dei guasti contano
+              quanto i processori.
+            </p>
+            <span class="card-arrow" aria-hidden="true">↗</span></a
+          ><a class="chapter-card" href="applications.html"
+            ><span class="card-number">05 / Applicazioni</span>
+            <h3>Dove lo incontriamo</h3>
+            <p>
+              Dalle simulazioni scientifiche ai servizi che usiamo ogni giorno.
+            </p>
+            <span class="card-arrow" aria-hidden="true">↗</span></a
+          ><a class="chapter-card" href="netflix.html"
+            ><span class="card-number">06 / Caso reale</span>
+            <h3>Il caso Netflix / Titus</h3>
+            <p>
+              Una piattaforma reale per capire il coordinamento su larga scala.
+            </p>
+            <span class="card-arrow" aria-hidden="true">↗</span></a
+          ><a class="chapter-card" href="sources.html"
+            ><span class="card-number">07 / Bibliografia</span>
+            <h3>Le fonti della ricerca</h3>
+            <p>
+              Documentazioni ufficiali e pubblicazioni tecniche, raccolte nel
+              documento originale.
+            </p>
+            <span class="card-arrow" aria-hidden="true">↗</span></a
+          >
+        </div>
+      </section>
+      <section class="closing">
+        <p class="eyebrow">CONNESSI, PER ANDARE OLTRE</p>
+        <h2>La potenza è nelle<br /><em>connessioni.</em></h2>
+        <a class="button" href="docs/ricerca_cluster_computing.md" download
+          >Scarica la ricerca originale <span>↓</span></a
+        >
+      </section>
+    </main>
+    <footer>
+      <a class="brand" href="index.html">cluster.</a>
+      <p>Ricerca di Perla · Ciarlo · Doganieri</p>
+      <a href="#main">Torna in alto ↑</a>
+    </footer>
+  </body>
+</html>

@@ -1,1 +1,186 @@
-<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Una piattaforma reale per capire il coordinamento su larga scala."><meta name="theme-color" content="#10120f"><title>Caso reale — Cluster</title><link rel="stylesheet" href="style.css"><script src="script.js" defer></script></head><body><a class="skip" href="#main">Salta al contenuto</a><div class="progress" aria-hidden="true"></div><header><a class="brand" href="index.html" aria-label="Cluster, pagina iniziale"><span class="brand-icon">⠿</span> cluster<span class="brand-dot">.</span></a><button class="menu-toggle" aria-expanded="false" aria-controls="main-nav">Menu <span>☰</span></button><nav id="main-nav" aria-label="Navigazione principale"><a href="index.html">Panoramica</a><a href="concetti.html">Fondamenti</a><a href="architettura.html">Funzionamento</a><a href="vantaggi.html">Vantaggi</a><a href="limiti.html">Criticità</a><a href="applicazioni.html">Applicazioni</a><a href="netflix.html" aria-current="page">Caso reale</a><a href="fonti.html">Bibliografia</a></nav></header><main id="main" tabindex="-1"><div class="page-top"><a href="index.html">Panoramica</a><span>/</span><span>Caso reale</span><span class="chapter-position">CAPITOLO 6 DI 7</span></div><div class="article-layout"><aside class="article-nav" aria-label="Indice del capitolo"><span>IN QUESTA PAGINA</span><a href="#argomento-1">Come funzionava il cluster Titus</a><a class="download-link" href="docs/ricerca_cluster_computing.md" download>Ricerca originale ↓</a></aside><section id="netflix" class="chapter article-chapter"><div class="chapter-label"><span>06</span>Caso reale</div><div class="chapter-content"><h1>Il caso Netflix / Titus</h1><p class="intro">Una piattaforma reale per capire il coordinamento su larga scala.</p><div class="netflix-stat"><span class="netflix-word">NETFLIX</span><div><strong>3 milioni</strong><p>di avvii di container alla settimana<br><small>Dato storico dichiarato nell’aprile 2018</small></p></div></div><p class="notice">Un caso storico, con il suo contesto: Titus nasce nel 2015, diventa open source nel 2018 e il repository viene archiviato nel 2022. La ricerca riporta anche l’evoluzione descritta da Netflix nel 2025. Titus non coincide con Open Connect né con l’intera infrastruttura Netflix.</p><div class="reading"><p>Un caso concreto di cluster computing nell&#x27;ambito dei servizi digitali è <strong>Titus</strong>, una piattaforma sviluppata da <strong>Netflix</strong> per gestire l&#x27;esecuzione di applicazioni all&#x27;interno di <strong>container</strong>. I container sono ambienti software che racchiudono un programma e le dipendenze necessarie al suo funzionamento, facilitandone l&#x27;esecuzione su macchine differenti.</p><p>Titus nacque nel <strong>2015</strong> e venne pubblicato come progetto <em>open source</em> nel <strong>2018</strong>. Netflix lo utilizzava per gestire carichi di lavoro differenti, tra cui servizi legati allo streaming, sistemi di raccomandazione, elaborazione di dati, machine learning e codifica dei contenuti. L&#x27;infrastruttura si appoggiava alle macchine virtuali <strong>Amazon EC2</strong> ospitate su <strong>AWS</strong>.</p><h3 id="argomento-1">Come funzionava il cluster Titus</h3><p>Nell&#x27;architettura resa pubblica da Netflix, i componenti principali erano:</p><ul><li><strong>Titus Gateway:</strong> riceveva le richieste provenienti da utenti e applicazioni attraverso API.</li><li><strong>Titus Master:</strong> coordinava le attività, controllava le risorse disponibili e decideva su quali nodi eseguirle.</li><li><strong>Titus Agents:</strong> operavano sulle macchine EC2, avviavano i container assegnati e ne monitoravano lo stato.</li><li><strong>Apache Mesos:</strong> contribuiva alla gestione delle risorse presenti nel cluster.</li></ul><p>In pratica, quando era necessario avviare un&#x27;applicazione, il sistema riceveva una richiesta che specificava il programma e le risorse necessarie. Il Master sceglieva i nodi disponibili e gli Agents avviavano i container. Se il carico aumentava, la piattaforma poteva ampliare le risorse utilizzate. Non serviva quindi configurare manualmente ogni singolo server per ogni attività.</p><p>La dimensione del sistema mostra l&#x27;utilità del modello: nell&#x27;<strong>aprile 2018</strong> Netflix dichiarava che Titus era in grado di gestire fino a <strong>tre milioni di avvii di container alla settimana</strong>. È un dato storico, non una misura attuale, ma rende evidente la necessità di coordinare automaticamente un numero elevato di elaborazioni.</p><p>È importante non confondere questo caso con l&#x27;intera infrastruttura Netflix. <strong>Titus</strong> era una piattaforma di esecuzione distribuita delle applicazioni; la distribuzione dei file video agli spettatori è invece legata anche a una diversa infrastruttura, chiamata <strong>Open Connect</strong>. Netflix non deve quindi essere considerata un unico cluster.</p><p><strong>Precisazione sull&#x27;evoluzione tecnologica.</strong> La documentazione pubblica di Titus descrive un&#x27;architettura storica e il suo repository principale è stato archiviato nel <strong>2022</strong>. In un articolo tecnico pubblicato nel <strong>novembre 2025</strong>, Netflix ha raccontato la migrazione da una precedente piattaforma container a una nuova soluzione che utilizza componenti come <strong>kubelet</strong> e <strong>containerd</strong>. Per questa ragione, la struttura di Titus non va presentata come una descrizione verificata dell&#x27;intera infrastruttura Netflix nel 2026. Rimane però un esempio reale e ben documentato dei principi del cluster computing: nodi autonomi, coordinamento centralizzato, assegnazione delle risorse, esecuzione distribuita e scalabilità.</p></div></div></section></div><nav class="chapter-pager" aria-label="Navigazione fra capitoli"><a href="applicazioni.html"><small>← PRECEDENTE</small><span>Applicazioni</span></a><a href="fonti.html"><small>SUCCESSIVO →</small><span>Bibliografia</span></a></nav></main><footer><a class="brand" href="index.html">cluster.</a><p>Ricerca di Perla · Ciarlo · Doganieri</p><a href="#main">Torna in alto ↑</a></footer></body></html>
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta
+      name="description"
+      content="Una piattaforma reale per capire il coordinamento su larga scala."
+    />
+    <meta name="theme-color" content="#10120f" />
+    <title>Caso reale — Cluster</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <a class="skip" href="#main">Salta al contenuto</a>
+    <div class="progress" aria-hidden="true"></div>
+    <header>
+      <a class="brand" href="index.html" aria-label="Cluster, pagina iniziale"
+        ><span class="brand-icon">⠿</span> cluster<span class="brand-dot"
+          >.</span
+        ></a
+      ><button
+        class="menu-toggle"
+        aria-expanded="false"
+        aria-controls="main-nav"
+      >
+        Menu <span>☰</span>
+      </button>
+      <nav id="main-nav" aria-label="Navigazione principale">
+        <a href="index.html">Panoramica</a><a href="concepts.html">Fondamenti</a
+        ><a href="architecture.html">Funzionamento</a
+        ><a href="advantages.html">Vantaggi</a
+        ><a href="limitations.html">Criticità</a
+        ><a href="applications.html">Applicazioni</a
+        ><a href="netflix.html" aria-current="page">Caso reale</a
+        ><a href="sources.html">Bibliografia</a>
+      </nav>
+    </header>
+    <main id="main" tabindex="-1">
+      <div class="page-top">
+        <a href="index.html">Panoramica</a><span>/</span><span>Caso reale</span
+        ><span class="chapter-position">CAPITOLO 6 DI 7</span>
+      </div>
+      <div class="article-layout">
+        <aside class="article-nav" aria-label="Indice del capitolo">
+          <span>IN QUESTA PAGINA</span
+          ><a href="#argomento-1">Come funzionava il cluster Titus</a
+          ><a
+            class="download-link"
+            href="docs/ricerca_cluster_computing.md"
+            download
+            >Ricerca originale ↓</a
+          >
+        </aside>
+        <section id="netflix" class="chapter article-chapter">
+          <div class="chapter-label"><span>06</span>Caso reale</div>
+          <div class="chapter-content">
+            <h1>Il caso Netflix / Titus</h1>
+            <p class="intro">
+              Una piattaforma reale per capire il coordinamento su larga scala.
+            </p>
+            <div class="netflix-stat">
+              <span class="netflix-word">NETFLIX</span>
+              <div>
+                <strong>3 milioni</strong>
+                <p>
+                  di avvii di container alla settimana<br /><small
+                    >Dato storico dichiarato nell’aprile 2018</small
+                  >
+                </p>
+              </div>
+            </div>
+            <p class="notice">
+              Un caso storico, con il suo contesto: Titus nasce nel 2015,
+              diventa open source nel 2018 e il repository viene archiviato nel
+              2022. La ricerca riporta anche l’evoluzione descritta da Netflix
+              nel 2025. Titus non coincide con Open Connect né con l’intera
+              infrastruttura Netflix.
+            </p>
+            <div class="reading">
+              <p>
+                Un caso concreto di cluster computing nell&#x27;ambito dei
+                servizi digitali è <strong>Titus</strong>, una piattaforma
+                sviluppata da <strong>Netflix</strong> per gestire
+                l&#x27;esecuzione di applicazioni all&#x27;interno di
+                <strong>container</strong>. I container sono ambienti software
+                che racchiudono un programma e le dipendenze necessarie al suo
+                funzionamento, facilitandone l&#x27;esecuzione su macchine
+                differenti.
+              </p>
+              <p>
+                Titus nacque nel <strong>2015</strong> e venne pubblicato come
+                progetto <em>open source</em> nel <strong>2018</strong>. Netflix
+                lo utilizzava per gestire carichi di lavoro differenti, tra cui
+                servizi legati allo streaming, sistemi di raccomandazione,
+                elaborazione di dati, machine learning e codifica dei contenuti.
+                L&#x27;infrastruttura si appoggiava alle macchine virtuali
+                <strong>Amazon EC2</strong> ospitate su <strong>AWS</strong>.
+              </p>
+              <h3 id="argomento-1">Come funzionava il cluster Titus</h3>
+              <p>
+                Nell&#x27;architettura resa pubblica da Netflix, i componenti
+                principali erano:
+              </p>
+              <ul>
+                <li>
+                  <strong>Titus Gateway:</strong> riceveva le richieste
+                  provenienti da utenti e applicazioni attraverso API.
+                </li>
+                <li>
+                  <strong>Titus Master:</strong> coordinava le attività,
+                  controllava le risorse disponibili e decideva su quali nodi
+                  eseguirle.
+                </li>
+                <li>
+                  <strong>Titus Agents:</strong> operavano sulle macchine EC2,
+                  avviavano i container assegnati e ne monitoravano lo stato.
+                </li>
+                <li>
+                  <strong>Apache Mesos:</strong> contribuiva alla gestione delle
+                  risorse presenti nel cluster.
+                </li>
+              </ul>
+              <p>
+                In pratica, quando era necessario avviare un&#x27;applicazione,
+                il sistema riceveva una richiesta che specificava il programma e
+                le risorse necessarie. Il Master sceglieva i nodi disponibili e
+                gli Agents avviavano i container. Se il carico aumentava, la
+                piattaforma poteva ampliare le risorse utilizzate. Non serviva
+                quindi configurare manualmente ogni singolo server per ogni
+                attività.
+              </p>
+              <p>
+                La dimensione del sistema mostra l&#x27;utilità del modello:
+                nell&#x27;<strong>aprile 2018</strong> Netflix dichiarava che
+                Titus era in grado di gestire fino a
+                <strong>tre milioni di avvii di container alla settimana</strong
+                >. È un dato storico, non una misura attuale, ma rende evidente
+                la necessità di coordinare automaticamente un numero elevato di
+                elaborazioni.
+              </p>
+              <p>
+                È importante non confondere questo caso con l&#x27;intera
+                infrastruttura Netflix. <strong>Titus</strong> era una
+                piattaforma di esecuzione distribuita delle applicazioni; la
+                distribuzione dei file video agli spettatori è invece legata
+                anche a una diversa infrastruttura, chiamata
+                <strong>Open Connect</strong>. Netflix non deve quindi essere
+                considerata un unico cluster.
+              </p>
+              <p>
+                <strong>Precisazione sull&#x27;evoluzione tecnologica.</strong>
+                La documentazione pubblica di Titus descrive
+                un&#x27;architettura storica e il suo repository principale è
+                stato archiviato nel <strong>2022</strong>. In un articolo
+                tecnico pubblicato nel <strong>novembre 2025</strong>, Netflix
+                ha raccontato la migrazione da una precedente piattaforma
+                container a una nuova soluzione che utilizza componenti come
+                <strong>kubelet</strong> e <strong>containerd</strong>. Per
+                questa ragione, la struttura di Titus non va presentata come una
+                descrizione verificata dell&#x27;intera infrastruttura Netflix
+                nel 2026. Rimane però un esempio reale e ben documentato dei
+                principi del cluster computing: nodi autonomi, coordinamento
+                centralizzato, assegnazione delle risorse, esecuzione
+                distribuita e scalabilità.
+              </p>
+            </div>
+          </div>
+        </section>
+      </div>
+      <nav class="chapter-pager" aria-label="Navigazione fra capitoli">
+        <a href="applications.html"
+          ><small>← PRECEDENTE</small><span>Applicazioni</span></a
+        ><a href="sources.html"
+          ><small>SUCCESSIVO →</small><span>Bibliografia</span></a
+        >
+      </nav>
+    </main>
+    <footer>
+      <a class="brand" href="index.html">cluster.</a>
+      <p>Ricerca di Perla · Ciarlo · Doganieri</p>
+      <a href="#main">Torna in alto ↑</a>
+    </footer>
+  </body>
+</html>

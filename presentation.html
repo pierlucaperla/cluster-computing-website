@@ -1,32 +1,177 @@
+
 <!DOCTYPE html>
 <html lang="it">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Componenti del gruppo</title>
+    <title>Il nostro gruppo</title>
 
-    <link
-        rel="stylesheet"
-        href="style.css"
-    >
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #080808;
+            min-height: 100vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            padding: 20px;
+        }
+
+        .componenti {
+            background: #151515;
+            width: 100%;
+            max-width: 500px;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+
+            border: 1px solid #303030;
+
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.8);
+
+            animation: comparsa 0.8s ease;
+        }
+
+        .icona {
+            font-size: 50px;
+            margin-bottom: 15px;
+            filter: grayscale(1);
+        }
+
+        h1 {
+            color: #ffffff;
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        p {
+            color: #aaaaaa;
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        li {
+            background: #222222;
+            border: 1px solid #333333;
+
+            margin-bottom: 15px;
+            padding: 16px;
+            border-radius: 12px;
+
+            display: flex;
+            align-items: center;
+            gap: 15px;
+
+            color: #ffffff;
+            font-weight: 600;
+
+            transition: 0.3s;
+        }
+
+        li:hover {
+            background: #303030;
+            border-color: #666666;
+            transform: translateY(-4px);
+        }
+
+        .numero {
+            background: #eeeeee;
+            color: #111111;
+
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        .footer {
+            margin-top: 25px;
+            color: #cccccc;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        @keyframes comparsa {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .componenti {
+                padding: 25px;
+            }
+
+            h1 {
+                font-size: 26px;
+            }
+        }
+    </style>
 </head>
 
 <body>
+
     <main>
         <section class="componenti">
+
+            <div class="icona">👥</div>
+
             <h1>Il nostro gruppo</h1>
 
             <p>
-                I componenti del gruppo di lavoro sono:
+                Siamo un gruppo di lavoro composto da tre membri,
+                pronti a collaborare e raggiungere nuovi obiettivi.
             </p>
 
             <ul>
-                <li>Antonio Doganieri</li>
-                <li>Pierluca Perla</li>
-                <li>Ciarlo Samuel</li>
+                <li>
+                    <span class="numero">01</span>
+                    <span>Antonio Doganieri</span>
+                </li>
+
+                <li>
+                    <span class="numero">02</span>
+                    <span>Pierluca Perla</span>
+                </li>
+
+                <li>
+                    <span class="numero">03</span>
+                    <span>Ciarlo Samuel</span>
+                </li>
             </ul>
+
+            <div class="footer">
+                Insieme si lavora meglio!
+            </div>
+
         </section>
     </main>
+
 </body>
 </html>

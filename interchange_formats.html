@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="description" content="CSV, XML e JSON: caratteristiche, peculiarità, esempi e confronto dei formati di interscambio dati nei sistemi distribuiti." />
+    <meta name="theme-color" content="#10120f" />
+    <title>Formati di interscambio — Cluster</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <a class="skip" href="#main">Salta al contenuto</a>
+    <div class="progress" aria-hidden="true"></div>
+    <header>
+      <a class="brand" href="index.html" aria-label="Cluster, pagina iniziale"
+        ><span class="brand-icon">⠿</span> cluster<span class="brand-dot"
+          >.</span
+        ></a
+      ><button
+        class="menu-toggle"
+        aria-expanded="false"
+        aria-controls="main-nav"
+      >
+        Menu <span>☰</span>
+      </button>
+      <nav id="main-nav" aria-label="Navigazione principale">
+        <a href="index.html">Panoramica</a
+        ><a href="concepts.html">Fondamenti</a
+        ><a href="architecture.html">Funzionamento</a
+        ><a href="advantages.html">Vantaggi</a
+        ><a href="limitations.html">Criticità</a
+        ><a href="applications.html">Applicazioni</a
+        ><a href="netflix.html">Caso reale</a
+        ><a href="interchange_formats.html" aria-current="page">Formati dati</a
+        ><a href="sources.html">Bibliografia</a>
+      </nav>
+    </header>
+    <main id="main" tabindex="-1">
+      <div class="page-top">
+        <a href="index.html">Panoramica</a><span>/</span><span>Formati dati</span>
+        <span class="chapter-position">APPROFONDIMENTO</span>
+      </div>
+      <div class="article-layout">
+        <aside class="article-nav" aria-label="Indice dell’approfondimento">
+          <span>IN QUESTA PAGINA</span>
+          <a href="#csv">CSV</a><a href="#xml">XML</a><a href="#json">JSON</a>
+          <a href="#confronto">Confronto e conclusioni</a><a href="#riferimenti">Fonti ufficiali</a>
+        </aside>
+        <section class="chapter article-chapter" aria-labelledby="titolo-formati">
+          <div class="chapter-label"><span>+</span>Formati dati</div>
+          <div class="chapter-content">
+            <h1 id="titolo-formati">Dati diversi, un linguaggio comune</h1>
+            <p class="intro">CSV, XML e JSON: tre modi per rappresentare e scambiare informazioni fra applicazioni.</p>
+            <div class="reading">
+              <p>Un formato di interscambio stabilisce come scrivere i dati perché programmi diversi possano interpretarli. Nei <a href="architecture.html">sistemi distribuiti</a>, questo accordo permette di trasferire informazioni fra nodi, servizi e strumenti di analisi. Sintassi, significato dei campi e codifica devono essere condivisi: un file leggibile non garantisce da solo che due programmi lo interpretino allo stesso modo.</p>
+              <p>Gli esempi originali seguenti descrivono gli stessi due nodi di un cluster: identificativo, nome e numero di CPU. Cambia la rappresentazione, mentre le informazioni restano confrontabili.</p>
+
+              <h2 id="csv">CSV — Comma-Separated Values</h2>
+              <p>CSV rappresenta una tabella testuale: ogni record contiene campi separati da virgole, con un’intestazione facoltativa. La <a href="https://www.rfc-editor.org/rfc/rfc4180.html">RFC 4180</a>, documento informativo, descrive una convenzione comune e il tipo MIME <code>text/csv</code>.</p>
+              <ul>
+                <li><strong>Caratteristiche:</strong> struttura piatta, sintassi essenziale e pochi caratteri aggiuntivi; utile per esportazioni da database, fogli di calcolo e risultati numerici.</li>
+                <li><strong>Peculiarità:</strong> i campi contenenti virgole, doppi apici o ritorni a capo vanno racchiusi tra doppi apici; un apice interno si raddoppia. Tutti i record devono avere lo stesso numero di campi.</li>
+                <li><strong>Limiti:</strong> non definisce tipi nativi o gerarchie. Separatore, codifica e interpretazione dei valori vuoti vanno concordati; alcune applicazioni usano varianti con punto e virgola.</li>
+              </ul>
+              <pre tabindex="0" aria-label="Esempio CSV"><code class="language-csv">id,nome,cpu
+1,"Nodo, principale",16
+2,Nodo di calcolo,32</code></pre>
+              <p>Le virgolette proteggono la virgola nel primo nome. Il valore <code>16</code> diventa un numero solo se il programma che importa i dati lo interpreta come tale.</p>
+
+              <h2 id="xml">XML — eXtensible Markup Language</h2>
+              <p>XML è un linguaggio di marcatura estensibile: tag scelti dall’autore descrivono elementi, attributi e relazioni gerarchiche. La specifica <a href="https://www.w3.org/TR/REC-xml/">XML 1.0 del W3C</a> ne definisce la sintassi.</p>
+              <ul>
+                <li><strong>Caratteristiche:</strong> un unico elemento radice, elementi correttamente annidati, nomi sensibili alle maiuscole e attributi con valori tra virgolette.</li>
+                <li><strong>Peculiarità:</strong> può combinare testo ed elementi e includere commenti. Una DTD può definire la struttura ammessa: essere <em>ben formato</em> riguarda la sintassi, essere <em>valido</em> richiede anche il rispetto delle regole dichiarate.</li>
+                <li><strong>Limiti e impieghi:</strong> i tag rendono esplicita la struttura, ma aumentano la verbosità. È adatto a documenti strutturati e scambi che richiedono regole formali.</li>
+              </ul>
+              <pre tabindex="0" aria-label="Esempio XML"><code class="language-xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;cluster&gt;
+  &lt;nodo id="1"&gt;
+    &lt;nome&gt;Nodo, principale&lt;/nome&gt;
+    &lt;cpu&gt;16&lt;/cpu&gt;
+  &lt;/nodo&gt;
+  &lt;nodo id="2"&gt;
+    &lt;nome&gt;Nodo di calcolo&lt;/nome&gt;
+    &lt;cpu&gt;32&lt;/cpu&gt;
+  &lt;/nodo&gt;
+&lt;/cluster&gt;</code></pre>
+              <p><code>cluster</code> è la radice; ogni <code>nodo</code> ha un attributo e due figli. Senza ulteriori regole, il contenuto di <code>cpu</code> è testo. Nei valori testuali, caratteri come <code>&lt;</code> e <code>&amp;</code> richiedono escape, rispettivamente <code>&amp;lt;</code> e <code>&amp;amp;</code>.</p>
+
+              <h2 id="json">JSON — JavaScript Object Notation</h2>
+              <p>JSON è un formato testuale per dati strutturati, indipendente dal linguaggio di programmazione nonostante il nome. La <a href="https://www.rfc-editor.org/rfc/rfc8259.html">RFC 8259</a> ne specifica sintassi e interoperabilità.</p>
+              <ul>
+                <li><strong>Caratteristiche:</strong> oggetti con coppie nome-valore e array ordinati. I valori possono essere stringhe, numeri, booleani, <code>null</code>, oggetti o array.</li>
+                <li><strong>Peculiarità:</strong> nomi e stringhe richiedono doppi apici; i nomi nello stesso oggetto dovrebbero essere unici. Gli scambi tra sistemi aperti richiedono UTF-8.</li>
+                <li><strong>Limiti e impieghi:</strong> utile per messaggi di API e servizi distribuiti. La sintassi standard non ammette commenti, virgole finali o tipi data; le date richiedono una convenzione, per esempio una stringa concordata.</li>
+              </ul>
+              <pre tabindex="0" aria-label="Esempio JSON"><code class="language-json">{
+  "nodi": [
+    { "id": 1, "nome": "Nodo, principale", "cpu": 16 },
+    { "id": 2, "nome": "Nodo di calcolo", "cpu": 32 }
+  ]
+}</code></pre>
+              <p><code>nodi</code> contiene un array di oggetti. Qui <code>cpu</code> è un numero nativo; l’ordine degli elementi dell’array è significativo, quello delle proprietà di un oggetto non lo è.</p>
+
+              <h2 id="confronto">Confronto e conclusioni</h2>
+              <p>La tabella riassume le differenze descritte nelle fonti. Gli impieghi indicati sono una sintesi pratica: la scelta dipende dai dati e dai programmi coinvolti.</p>
+              <div class="table-scroll" role="region" aria-label="Confronto dei formati, scorribile orizzontalmente" tabindex="0">
+                <table>
+                  <caption>Tre rappresentazioni a confronto</caption>
+                  <thead><tr><th scope="col">Aspetto</th><th scope="col">CSV</th><th scope="col">XML</th><th scope="col">JSON</th></tr></thead>
+                  <tbody>
+                    <tr><th scope="row">Struttura</th><td>Tabella piatta</td><td>Albero di elementi e attributi</td><td>Oggetti e array annidati</td></tr>
+                    <tr><th scope="row">Tipi dei valori</th><td>Interpretazione esterna</td><td>Testo; regole aggiuntive possibili</td><td>Tipi primitivi nativi</td></tr>
+                    <tr><th scope="row">Sintassi aggiuntiva</th><td>Minima per dati tabellari</td><td>Tag di apertura e chiusura</td><td>Chiavi, parentesi e separatori</td></tr>
+                    <tr><th scope="row">Uso indicativo</th><td>Esportazioni e analisi tabellari</td><td>Documenti con struttura formale</td><td>Scambi tra API e servizi</td></tr>
+                    <tr><th scope="row">Attenzione a</th><td>Separatori e conversioni dei valori</td><td>Annidamento e verbosità</td><td>Chiavi duplicate e convenzioni sulle date</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <p><strong>Per scegliere:</strong> CSV semplifica uno scambio di righe e colonne; XML offre una rappresentazione documentale articolata; JSON esprime direttamente strutture di oggetti e liste. Nel contesto di un cluster, si può esportare una tabella di misure in CSV, descrivere un documento strutturato in XML o inviare lo stato dei nodi tramite JSON.</p>
+              <p>Nessuno dei tre è sempre migliore: dimensioni e tempi di elaborazione dipendono dal contenuto e dagli strumenti. Prima dello scambio occorre concordare nomi, unità di misura, campi obbligatori e gestione dei dati mancanti, oltre a verificare che il destinatario supporti il formato scelto.</p>
+
+              <h2 id="riferimenti">Fonti ufficiali</h2>
+              <p>Ricerca online basata sulle seguenti specifiche, consultate il 4 novembre 2026. Gli esempi sono stati creati per questo approfondimento.</p>
+              <ol>
+                <li><a href="https://www.rfc-editor.org/rfc/rfc4180.html">RFC Editor — RFC 4180: Common Format and MIME Type for CSV Files</a> (2005). Convenzioni CSV e tipo MIME.</li>
+                <li><a href="https://www.w3.org/TR/REC-xml/">W3C — Extensible Markup Language (XML) 1.0, quinta edizione</a> (2008). Elementi, attributi, buona formazione e validità.</li>
+                <li><a href="https://www.rfc-editor.org/rfc/rfc8259.html">RFC Editor — RFC 8259: The JSON Data Interchange Format</a> (2017). Tipi, grammatica e interoperabilità.</li>
+              </ol>
+            </div>
+          </div>
+        </section>
+      </div>
+      <nav class="chapter-pager" aria-label="Altre pagine della ricerca">
+        <a href="architecture.html"><small>← COLLEGAMENTO</small><span>Funzionamento del cluster</span></a>
+        <a href="sources.html"><small>CONTINUA →</small><span>Bibliografia</span></a>
+      </nav>
+    </main>
+    <footer>
+      <a class="brand" href="index.html">cluster.</a>
+      <p>Ricerca di Perla · Ciarlo · Doganieri</p>
+      <a href="#main">Torna in alto ↑</a>
+    </footer>
+  </body>
+</html>

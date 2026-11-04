@@ -113,7 +113,7 @@ if ("IntersectionObserver" in window) {
     { rootMargin: "-10% 0px -65% 0px", threshold: 0 },
   );
   document
-    .querySelectorAll(".reading h3[id],.types h3[id]")
+    .querySelectorAll(".reading h2[id],.reading h3[id],.types h3[id]")
     .forEach((el) => headingObserver.observe(el));
 }
 const network = document.querySelector(".network");
